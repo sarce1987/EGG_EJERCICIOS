@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Cine">
+  <ClassDiagramComponents>
+    <Class name="Pelicula" package="" visibility="public" xPosition="730.0" yPosition="46.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="duracion" type="int" visibility="private"/>
+        <Field name="edadMinimo" type="int" visibility="private"/>
+        <Field name="director" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Espectador" package="" visibility="public" xPosition="1053.0" yPosition="388.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="dineroDisponible" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Sala" package="" visibility="public" xPosition="246.0" yPosition="218.0">
+      <Fields>
+        <Field name="pelicula" type="Pelicula" visibility="private"/>
+        <Field name="dineroEntrada" type="double" visibility="private"/>
+        <Field name="salaNumero" type="int" visibility="private"/>
+        <Field name="asientos" type="ArrayList&lt;ArrayList&lt;Asiento&gt;&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Asiento" package="" visibility="public" xPosition="714.0" yPosition="426.0">
+      <Fields>
+        <Field name="ocupado" type="boolean" visibility="private"/>
+        <Field name="espectador" type="Espectador" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="SalaPelicula" source="Sala" target="Pelicula" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="SalaAsiento" source="Sala" target="Asiento" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="AsientoEspectador" source="Asiento" target="Espectador" type="Default" sourceCardinality="0..1" targetCardinality="0..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

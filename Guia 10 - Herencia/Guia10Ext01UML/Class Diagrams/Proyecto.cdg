@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Proyecto">
+  <ClassDiagramComponents>
+    <Class name="Cliente" package="" visibility="public" xPosition="479.0" yPosition="58.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="barco" type="Barco" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Barco" package="" visibility="public" isAbstract="true" xPosition="738.0" yPosition="40.0">
+      <Fields>
+        <Field name="matricula" type="String" visibility="protected"/>
+        <Field name="eslora" type="int" visibility="protected"/>
+        <Field name="anioFabricacion" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularModulo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Velero" package="" visibility="public" xPosition="570.0" yPosition="311.0">
+      <Fields>
+        <Field name="numMastiles" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularModulo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BarcoMotorizado" package="" visibility="public" xPosition="770.0" yPosition="321.0">
+      <Fields>
+        <Field name="potencia" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularModulo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Yate" package="" visibility="public" xPosition="953.0" yPosition="311.0">
+      <Fields>
+        <Field name="potencia" type="int" visibility="private"/>
+        <Field name="numCamarotes" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularModulo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Alquiler" package="" visibility="public" xPosition="218.0" yPosition="37.0">
+      <Fields>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="fechaAlquiler" type="Date" visibility="private"/>
+        <Field name="fechaDevolucion" type="Date" visibility="private"/>
+        <Field name="posicionAmarre" type="PosicionAmarre" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calculoAlquiler" returnType="void" visibility="public"/>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="PosicionAmarre" package="" visibility="public" xPosition="336.0" yPosition="313.0">
+      <Literals>
+        <Literal name="ADELANTE"/>
+        <Literal name="MEDIO"/>
+        <Literal name="ATRAS"/>
+      </Literals>
+    </Enum>
+    <Class name="ListaAlquiler" package="" visibility="public" xPosition="39.0" yPosition="313.0">
+      <Fields>
+        <Field name="alquileres" type="Arraylist&lt;Alquiler&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="generarAlquiler" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Velero" target="Barco"/>
+    <HasRelation name="Usa" source="ListaAlquiler" target="Alquiler" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="Yate" target="Barco"/>
+    <HasRelation name="TieneUna" source="Alquiler" target="PosicionAmarre" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="BarcoMotorizado" target="Barco"/>
+    <HasRelation name="tieneUn" source="Alquiler" target="Cliente" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="ClienteBarco" source="Cliente" target="Barco" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

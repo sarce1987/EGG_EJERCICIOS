@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Proyecto">
+  <ClassDiagramComponents>
+    <Class name="Alojamiento" package="" visibility="public" isAbstract="true" xPosition="293.0" yPosition="151.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="direccion" type="String" visibility="protected"/>
+        <Field name="localidad" type="String" visibility="protected"/>
+        <Field name="gerente" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Hotel" package="" visibility="public" isAbstract="true" xPosition="195.0" yPosition="362.0">
+      <Fields>
+        <Field name="cantHabitaciones" type="int" visibility="protected"/>
+        <Field name="numCamas" type="int" visibility="protected"/>
+        <Field name="cantPisos" type="int" visibility="protected"/>
+        <Field name="precioHabitaciones" type="double" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularPrecio" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Extrahotelero" package="" visibility="public" xPosition="400.0" yPosition="362.0">
+      <Fields>
+        <Field name="privado" type="boolean" visibility="protected"/>
+        <Field name="m2" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Hotel5" package="" visibility="public" isFinal="true" xPosition="195.0" yPosition="790.0">
+      <Fields>
+        <Field name="cantSalonConferencia" type="int" visibility="private"/>
+        <Field name="cantSuites" type="int" visibility="private"/>
+        <Field name="cantLimos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="adicionarPrecioLimo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Hotel4" package="" visibility="public" xPosition="175.0" yPosition="585.0">
+      <Fields>
+        <Field name="gimnasio" type="Gimnasio" visibility="protected"/>
+        <Field name="nombRestaurant" type="String" visibility="protected"/>
+        <Field name="capacidadRestaurant" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="adicionarPrecioGimnasio" returnType="void" visibility="public"/>
+        <Method name="adicionarPrecioRestaurante" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Gimnasio" package="" visibility="public" xPosition="517.0" yPosition="589.0">
+      <Fields>
+        <Field name="tipo" type="Tipo" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Camping" package="" visibility="public" isFinal="true" xPosition="687.0" yPosition="206.0">
+      <Fields>
+        <Field name="capMaxCarpas" type="int" visibility="private"/>
+        <Field name="cantBanos" type="int" visibility="private"/>
+        <Field name="restaurant" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Residencia" package="" visibility="public" isFinal="true" xPosition="687.0" yPosition="371.0">
+      <Fields>
+        <Field name="cantHabitaciones" type="int" visibility="private"/>
+        <Field name="descGremio" type="boolean" visibility="private"/>
+        <Field name="campDeportivo" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="AlojamientoServicio" package="" visibility="public" xPosition="495.0" yPosition="68.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearAlojamiento" returnType="Alojamiento" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="Tipo" package="" visibility="public" xPosition="771.0" yPosition="585.0">
+      <Literals>
+        <Literal name="A"/>
+        <Literal name="B"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Residencia" target="Extrahotelero"/>
+    <IsRelation name="is" source="Hotel5" target="Hotel4"/>
+    <IsRelation name="is" source="Camping" target="Extrahotelero"/>
+    <HasRelation name="TieneUn" source="Hotel4" target="Gimnasio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Hotel" target="Alojamiento"/>
+    <IsRelation name="is" source="Hotel4" target="Hotel"/>
+    <UseRelation name="usa" source="AlojamientoServicio" target="Alojamiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Extrahotelero" target="Alojamiento"/>
+    <HasRelation name="Tiene" source="Gimnasio" target="Tipo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
